@@ -7,7 +7,9 @@ export const authUser = async () => {
     const cookieStore = await cookies();
     const headerStore = await headers();
 
-    const token =cookieStore.get("accessToken")?.value ??headerStore.get("authorization")?.replace(/^Bearer\s+/i, "");
+    const token =
+      cookieStore.get("accessToken")?.value ||
+      headerStore.get("authorization")?.replace(/^Bearer\s+/i, "");
 
     if (!token) {
       throw new Error("Unauthorized");
