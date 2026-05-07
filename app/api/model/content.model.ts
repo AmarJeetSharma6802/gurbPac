@@ -11,7 +11,7 @@ export interface IContent extends Document {
 
   videoUrl: string;
   posterUrl: string;
-  publicId: string;
+  // publicId: string;
   slug: string;
 
   status: ContentStatus;
@@ -49,11 +49,6 @@ const ContentSchema = new Schema<IContent>(
       required: true,
     },
     posterUrl: {
-      type: String,
-      required: true,
-    },
-
-    publicId: {
       type: String,
       required: true,
     },

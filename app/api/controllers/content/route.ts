@@ -37,7 +37,6 @@ export async function POST(req: Request): Promise<Response> {
       description,
       videoUrl: uploadVideo.videoUrl,
       posterUrl: uploadVideo.posterUrl,
-      publicId: uploadVideo.publicId,
       status: "pending",
       slug
     });
