@@ -5,6 +5,7 @@ import AuthPanel from "@/components/auth/AuthPanel";
 
 export default function AuthPage() {
   return (
+    
     <main className="grid min-h-screen bg-slate-50 lg:grid-cols-[1fr_460px]">
       <section className="flex flex-col justify-between p-6 md:p-10">
         <Link href="/" className="text-2xl font-bold text-slate-950">GurbPac Broadcast</Link>
