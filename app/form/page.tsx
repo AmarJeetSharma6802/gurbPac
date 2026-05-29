@@ -123,20 +123,13 @@ import { useState } from "react";
 export default function LeadForm() {
   const [form, setForm] = useState({
     studentName: "",
-
     email: "",
-
     phone: "",
-
     language: "",
-
     courseName: "",
-
     teacherName: "",
-
     rating: "",
-
-    didntLike: "",
+  didntLike: "",
   });
 
   const changeHandler = (e: any) => {
