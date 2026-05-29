@@ -22,11 +22,9 @@ For the email setup, I created a principal login because the default role in the
 
 Principal:
 test123@gmail.com
-pass: principle@
 
 Teacher:
 test456@gmail.com 
-pass : Bitu@456
 
 School Secret Code:
 school@123
