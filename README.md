@@ -42,3 +42,34 @@ https://github.com/AmarJeetSharma6802/gurbPac
 
 LinkedIn Profile:
 Amarjeet Sharma LinkedIn
+
+.env.example
+
+MONGODB_URI =
+
+
+NODE_ENV=development
+NODE_ENV=production
+
+EMAIL_USER = 
+EMAIL_PASS = 
+
+REFRESHTOKEN = yfiah
+ACCESSTOKEN = urw
+
+CLOUDINARY_NAME = 
+API_KEY = 
+API_SECRET = 
+
+
+# gclid sheet
+
+TEACHER_SECRET_CODE=
+
+SHEET_URL =
+
+
+SECRET_KEY= 
+
+OWNER_EMAIL = 
+
