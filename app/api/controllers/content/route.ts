@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import Content from "../../model/content.model";
 import { authUser } from "../../middleware/auth.middleware";
 import DBconnect from "../../DB/DBconnect";
-import { uploadVideoWithPoster } from "@/app/api/utils/cloudinary";
+import { uploadMedia } from "@/app/api/utils/cloudinary";
 import { generateSlug } from "@/app/api/utils/slug";
 
 export async function POST(req: Request): Promise<Response> {
@@ -25,7 +25,7 @@ export async function POST(req: Request): Promise<Response> {
       return NextResponse.json({ message: "All fields required",},{status: 400});
     }
 
-    const uploadVideo = await uploadVideoWithPoster(video, "video");
+    const uploadVideo = await uploadMedia(video, "video");
 
 
     const slug = generateSlug(title);
@@ -35,7 +35,7 @@ export async function POST(req: Request): Promise<Response> {
       title,
       subject,
       description,
-      videoUrl: uploadVideo.videoUrl,
+      videoUrl: uploadVideo.url,
       posterUrl: uploadVideo.posterUrl,
       status: "pending",
       slug

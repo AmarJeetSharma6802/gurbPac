@@ -248,13 +248,15 @@ export async function GET() {
   await DBconnect();
 
   const user = await authUser();
+   
+ const userCount = await teacher.countDocuments();
 
   if (!user) {
     return NextResponse.json({ message: "Unauthorized user" }, { status: 401 });
   }
 
   return NextResponse.json(
-    { message: "user fetch succefully", user },
+    { message: "user fetch succefully", user,userCount },
     { status: 200 },
   );
 }
