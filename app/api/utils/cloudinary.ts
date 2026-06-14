@@ -1,8 +1,4 @@
-import {
-  v2 as cloudinary,
-  UploadApiErrorResponse,
-  UploadApiResponse,
-} from "cloudinary";
+import {v2 as cloudinary,UploadApiErrorResponse,UploadApiResponse,} from "cloudinary";
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_NAME,
@@ -18,7 +14,7 @@ export interface UploadResponse {
 }
 
 export const uploadMedia = async (file: File,folder = "education",): Promise<UploadResponse> => {
-  
+
   if (!file.type.startsWith("image/") && !file.type.startsWith("video/")) {
     throw new Error("Only image and video files are allowed");
   }
@@ -66,10 +62,8 @@ export const uploadMedia = async (file: File,folder = "education",): Promise<Upl
               }),
         },
 
-        (
-          error: UploadApiErrorResponse | undefined,
-          result: UploadApiResponse | undefined,
-        ) => {
+        (error: UploadApiErrorResponse | undefined,result: UploadApiResponse | undefined,) => {
+          
           if (error) {
             return reject(error);
           }
