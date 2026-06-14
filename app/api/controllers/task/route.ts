@@ -3,6 +3,7 @@ import Content from "../../model/content.model";
 import Task from "../../model/task.model";
 import { authUser } from "../../middleware/auth.middleware";
 import DBconnect from "../../DB/DBconnect";
+import { uploadMedia } from "../../utils/cloudinary";
 
 export async function POST(req: Request) {
   try {
@@ -17,14 +18,22 @@ export async function POST(req: Request) {
       );
     }
 
-    const {
-      contentId,
-      homeworkTitle,
-      description,
-      dueDate,
-      totalMarks,
-      attachmentUrl,
-    } = await req.json();
+    const formData = await req.formData();
+
+    const contentId = formData.get("contentId") as string;
+    const homeworkTitle = formData.get("homeworkTitle") as string;
+    const description = formData.get("description") as string;
+    const dueDate = formData.get("dueDate") as string;
+    const totalMarks = Number(formData.get("totalMarks"));
+
+    const image = formData.get("image") as File | null;
+
+    if (!image) {
+      return NextResponse.json(
+        { message: "Image is required" },
+        { status: 400 },
+      );
+    }
 
     // Validation
     if (!contentId || !homeworkTitle || !dueDate) {
@@ -47,7 +56,8 @@ export async function POST(req: Request) {
     // Content ka title
     console.log("Content Title:", content.title);
 
-    // 2. Task create karo
+    const uploadImage = await uploadMedia(image, "tasks");
+
     const task = await Task.create({
       teacherId: user._id,
       contentId: content._id,
@@ -57,7 +67,7 @@ export async function POST(req: Request) {
 
       dueDate: new Date(dueDate),
       totalMarks: totalMarks || 0,
-      attachmentUrl,
+      imageUrl: uploadImage.url,
 
       status: "active",
     });
@@ -85,7 +95,3 @@ export async function POST(req: Request) {
     );
   }
 }
-
-
-const formData = await req.formdata()
-const title = formData.get("")
