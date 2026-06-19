@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { NextResponse ,NextRequest } from "next/server";
 import Task from "../../../model/task.model";
 import { authUser } from "../../../middleware/auth.middleware";
 import DBconnect from "../../../DB/DBconnect";
@@ -104,9 +104,9 @@ export async function PUI(
   }
 }
 
-export async function DELETE(req: Request,{ params }: { params: { id: string } },) {
+export async function DELETE(req: NextRequest,{ params }: { params: { id: string } },) {
 
-  DBconnect();
+  await  DBconnect();
 
   const user = await authUser();
 
