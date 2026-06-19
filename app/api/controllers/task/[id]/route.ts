@@ -114,7 +114,7 @@ export async function DELETE(req: Request,{ params }: { params: { id: string } }
     return NextResponse.json({ message: "Unauthorized user" }, { status: 401 });
   }
 
-  const { id } = params;
+  const { id } = await params;
 
   const deleteTask = await Task.findByIdAndDelete(id);
 
