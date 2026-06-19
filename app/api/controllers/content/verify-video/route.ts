@@ -63,3 +63,21 @@ export async function PUT(req: Request): Promise<Response> {
   }
 
   }
+
+
+//   const updateContentStatus = async (
+//   contId: string,
+//   action: "approved" | "rejected",
+//   reason?: string
+// )
+// await fetch("/api/controllers/content/verify-video", {
+//   method: "PUT",
+//   headers: {
+//     "Content-Type": "application/json",
+//   },
+//   body: JSON.stringify({
+//     contentId: contId,
+//     status: action,
+//     rejectionReason: reason,
+//   }),
+// });

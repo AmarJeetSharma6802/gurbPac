@@ -95,3 +95,24 @@ export async function POST(req: Request) {
     );
   }
 }
+
+export async function GET() {
+  const totalTasks = await Task.countDocuments();
+
+  const activeTasks = await Task.countDocuments({
+    status: "active",
+  });
+
+  const expiredTasks = await Task.countDocuments({
+    status: "expired",
+  });
+
+  const lastTask = await Task.findOne().sort({ dueDate: -1 });
+
+  return NextResponse.json({
+    totalTasks,
+    activeTasks,
+    expiredTasks,
+    lastDateOfTask: lastTask?.dueDate,
+  });
+}
