@@ -24,7 +24,7 @@ const taskSchema = new Schema<TaskModel>({
   },
   contentId: {
     type: mongoose.Types.ObjectId,
-    ref: "teacher",
+    ref: "Content",
   },
   homeworkTitle: {
     type: String,

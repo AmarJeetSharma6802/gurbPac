@@ -9,11 +9,13 @@ const navItems = {
     { href: "/teacher/dashboard", label: "Dashboard" },
     { href: "/teacher/upload", label: "Upload" },
     { href: "/teacher/content", label: "My Content" },
+    { href: "/task", label: "Task" },
   ],
   principal: [
     { href: "/principal/dashboard", label: "Dashboard" },
     { href: "/principal/approvals", label: "Approvals" },
     { href: "/principal/content", label: "All Content" },
+    { href: "/task", label: "Task" },
   ],
 };
 

@@ -97,6 +97,8 @@ export async function POST(req: Request) {
 }
 
 export async function GET() {
+  await DBconnect();
+
   const totalTasks = await Task.countDocuments();
 
   const activeTasks = await Task.countDocuments({
