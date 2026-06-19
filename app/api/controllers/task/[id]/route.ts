@@ -10,7 +10,7 @@ export async function PUI(
   { params }: { params: { id: string } },
 ) {
   try {
-    DBconnect();
+     await DBconnect();
 
     const user = await authUser();
 
